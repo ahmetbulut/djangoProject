@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demonstration of Template System Directives</title>
+</head>
+<body>
+<h2>Books in Our Inventory</h2>
+
+{# Display the availability information here #}
+<p>We have {{ books_list | length }} books.</p>
+
+<ul>
+    {% for item in books_list%}
+        <li>Title: {{ item.title}},
+            Publisher: {{ item.publisher }},
+            Publication year: {{ item.year}}
+        </li>
+    {% endfor %}
+</ul>
+
+{% if flag %}
+    <p>Thank you for visiting our page.</p>
+{% else %}
+    <p>See you later!</p>
+{% endif %}
+</body>
+</html>
