@@ -15,7 +15,7 @@ class Author(models.Model):
     last_name = models.CharField(max_length=40)
     email = models.EmailField()
 
-    def __unicode__(self):
+    def __str__(self):
         return self.first_name + " " + self.last_name + "@" + self.email
 
 class Book(models.Model):
