@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}The List of All Authors{% endblock %}
+
+{% block content %}
+    <ol>
+    {% for author in authors_list %}
+    <li> {{ author.email }}, {{ author.id }} </li>
+    {% endfor %}
+    </ol>
+{% endblock %}

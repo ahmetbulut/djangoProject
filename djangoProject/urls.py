@@ -16,10 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from djangoProject.views import hello, today, today_proper, display
+from bookstore.views import add_author, all_authors, author_search
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('hello/', hello),
     path('today/', today_proper),
     path('display/', display),
+    path('add_author/', add_author),
+    path('authors/', all_authors),
+    path('author_search/', author_search)
 ]
