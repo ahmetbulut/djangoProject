@@ -32,12 +32,12 @@ def search(request):
     if request.GET['q']:
         q = request.GET['q']
         print('query', q)
-        if q == '':
-            errors.append('Enter a search term.')
-        elif len(q) > 20:
+        if len(q) > 20:
             errors.append('Please enter at most 20 characters.')
         else:
             books = Book.objects.filter(title__icontains=q)
             return render(request, 'search_results.html', {'books': books, 'query': q})
+    else:
+        errors.append('Enter a search term.')
 
     return render(request, 'search_form.html', {'errors': errors})
