@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from djangoProject.views import hello, today, today_proper, display
 from bookstore.views import add_author, all_authors, author_search
+from bookstore.views import search_form, search
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,5 +26,7 @@ urlpatterns = [
     path('display/', display),
     path('add_author/', add_author),
     path('authors/', all_authors),
-    path('author_search/', author_search)
+    path('author_search/', author_search),
+    path('search_form/', search_form),
+    path('search/', search)
 ]
