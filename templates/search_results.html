@@ -2,16 +2,22 @@
 {% block title %} Search Results {% endblock %}
 
 {% block content %}
-<p>You searched for: <strong>{{ query }}</strong></p>
+    <div class="container" style="width: 50%">
+        <p></p>
+        <p>You searched for: <strong>{{ query }}</strong></p>
 
-{% if books %}
-    <p>Found {{ books|length }} book{{ books|pluralize }}.</p>
-    <ul>
-        {% for book in books %}
-            <li>{{ book.title }}</li>
-        {% endfor %}
-    </ul>
-{% else %}
-    <p>No books matched your search criteria.</p>
-{% endif %}
+        {% if books %}
+            <p>Found {{ books|length }} book{{ books|pluralize }}.</p>
+            <ul class="list-group">
+                {% for book in books %}
+                    <li class="list-group-item list-group-item-info">
+                        {{ book.title }}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No books matched your search criteria.</p>
+        {% endif %}
+    </div>
+
 {% endblock %}
