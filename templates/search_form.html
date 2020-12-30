@@ -1,25 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Search</title>
-</head>
+{% extends "base.html" %}
+{% block title %} Search Books {% endblock %}
 
-<body>
+{% block content %}
+    <div class="container" style="width: 50%">
+        {% if errors %}
+            <ul>
+                {% for error in errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
 
-{% if errors %}
-    <ul>
-        {% for error in errors %}
-            <li>{{ error }}</li>
-        {% endfor %}
-    </ul>
-{% endif %}
+        <form action="/search/" method="get">
+            <div class="form-group">
+                <input class="form-control" type="text" name="q">
+                <input class="btn btn-warning" type="submit" value="Search">
+            </div>
+        </form>
+    </div>
+{% endblock %}
 
-<form action="/search/" method="get">
-    <input type="text" name="q">
-    <input type="submit" value="Find">
-</form>
-
-</body>
-
-</html>
+{#    <div class="container" style="width: 50%">#}
+{#    <form action="/search/" method="get">#}
+{#        <div class="form-group">#}
+{#            <input class="form-control" type="text" name="q">#}
+{#            <input class="btn btn-primary" type="submit" value="Find">#}
+{#        </div>#}
+{#    </form>#}
+{#    </div>#}
