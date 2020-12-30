@@ -1,24 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Add Author</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% load bootstrap %}
+{% block title %}Add Author{% endblock %}
 
-<h1>Add Author</h1>
-{% if form.errors %}
-    <p style="color: red;">
-        Please correct the error{{ form.errors|pluralize }} below.
-    </p>
-{% endif %}
+{% block content %}
 
-<form method="post">
-    <table>
-        {{ form.as_table }}
-    </table>
-    <input type="submit" value="Submit">
-</form>
+    {% if form.errors %}
+        <p style="color: red;">
+            Please correct the error{{ form.errors|pluralize }} below.
+        </p>
+    {% endif %}
 
-</body>
-</html>
+    <div class="container" style="width: 50%">
+        <h1>Add Author</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form | bootstrap }}
+            <input class="btn btn-primary" type="submit" value="Submit">
+        </form>
+    </div>
+
+{% endblock %}
