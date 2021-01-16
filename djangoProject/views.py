@@ -11,6 +11,9 @@ from sklearn.neighbors import KNeighborsClassifier
 def home(request):
     return render(request, "base.html")
 
+def display_image(request):
+    return render(request, "image.html")
+
 def plot(request):
     # Typical Data Pre-processing
     # 1. Load dataset.
